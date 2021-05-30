@@ -128,6 +128,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105300627151_InitialMigration.cs" />
+    <Compile Include="Migrations\202105300627151_InitialMigration.designer.cs">
+      <DependentUpon>202105300627151_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105300815057_TripsAndTravelDB-v1.0.cs" />
+    <Compile Include="Migrations\202105300815057_TripsAndTravelDB-v1.0.designer.cs">
+      <DependentUpon>202105300815057_TripsAndTravelDB-v1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\TripsAndTravelContext.cs" />
@@ -215,6 +224,14 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105300627151_InitialMigration.resx">
+      <DependentUpon>202105300627151_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105300815057_TripsAndTravelDB-v1.0.resx">
+      <DependentUpon>202105300815057_TripsAndTravelDB-v1.0.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,6 +11,9 @@ namespace trips_and_travel_system.Models
         {
             SavedPosts = new HashSet<Post>();
             TripPosts = new HashSet<Post>();
+            fAQs = new HashSet<FAQ>();
+            likedPosts = new HashSet<Post>();
+            dislikedPosts = new HashSet<Post>();
         }
 
         public int UserId { set; get; }
@@ -22,5 +25,8 @@ namespace trips_and_travel_system.Models
         public string photo { set; get; }
         public ICollection<Post> SavedPosts { set; get; }
         public ICollection<Post> TripPosts { set; get; }
+        public ICollection<FAQ> fAQs { set; get; }
+        public ICollection<Post> likedPosts { set; get; }
+        public ICollection<Post> dislikedPosts { set; get; }
     }
 }

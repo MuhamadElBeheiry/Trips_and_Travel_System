@@ -28,9 +28,27 @@ namespace trips_and_travel_system.Models
                 .Map(userSavedPosts =>
                         {
                             userSavedPosts.MapLeftKey("UserId");
-                            userSavedPosts.MapRightKey("PostId");
+                            userSavedPosts.MapRightKey("SavedPostId");
                             userSavedPosts.ToTable("UserSavedPosts");
                         });
+            modelBuilder.Entity<User>()
+                .HasMany<Post>(t => t.likedPosts)
+                .WithMany(p => p.likedTravelers)
+                .Map(travelerLikedPosts =>
+                {
+                    travelerLikedPosts.MapLeftKey("TravelerId");
+                    travelerLikedPosts.MapRightKey("LikedPostId");
+                    travelerLikedPosts.ToTable("TravelerLikedPosts");
+                });
+            modelBuilder.Entity<User>()
+                .HasMany<Post>(t => t.dislikedPosts)
+                .WithMany(p => p.dislikedTravelers)
+                .Map(travelerDislikedPosts =>
+                {
+                    travelerDislikedPosts.MapLeftKey("TravelerId");
+                    travelerDislikedPosts.MapRightKey("DislikedPostId");
+                    travelerDislikedPosts.ToTable("TravelerDislikedPosts");
+                });
 
             #endregion
 
@@ -50,6 +68,14 @@ namespace trips_and_travel_system.Models
 
             modelBuilder.Entity<FAQ>()
                 .HasKey<int>(f => f.FAQId);
+            modelBuilder.Entity<FAQ>()
+                .HasRequired<User>(t => t.traveler)
+                .WithMany(t => t.fAQs)
+                .HasForeignKey(t => t.travelerId);
+            modelBuilder.Entity<FAQ>()
+                .HasRequired<Post>(p => p.post)
+                .WithMany(p => p.fAQs)
+                .HasForeignKey(p => p.postId);
 
             #endregion
         }

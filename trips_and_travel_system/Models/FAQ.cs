@@ -15,5 +15,12 @@ namespace trips_and_travel_system.Models
         public int FAQId { set; get; }
         public string question { set; get; }
         public string answer { set; get; }
+
+        public int postId { set; get; }
+        public Post post { set; get; }
+
+
+        public int travelerId { set; get; }
+        public User traveler { set; get; }
     }
 }
