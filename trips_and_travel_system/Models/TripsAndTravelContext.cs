@@ -11,6 +11,7 @@ namespace trips_and_travel_system.Models
         public DbSet<User> Users { set; get; }
         public DbSet<Post> Posts { set; get; }
         public DbSet<FAQ> FAQs { set; get; }
+        public DbSet<RoleMaster> RoleMasters { set; get; }
 
         public TripsAndTravelContext() : base("name=DatabaseContext")
         {
@@ -49,6 +50,10 @@ namespace trips_and_travel_system.Models
                     travelerDislikedPosts.MapRightKey("DislikedPostId");
                     travelerDislikedPosts.ToTable("TravelerDislikedPosts");
                 });
+            modelBuilder.Entity<User>()
+                .HasRequired<RoleMaster>(u => u.userRoleMaster)
+                .WithMany(r => r.users)
+                .HasForeignKey(u => u.roleId);
 
             #endregion
 
@@ -58,7 +63,7 @@ namespace trips_and_travel_system.Models
                 .HasKey<int>(p => p.PostId);
             modelBuilder.Entity<Post>()
                 .HasRequired(p => p.Agency)
-                .WithMany(u => u.TripPosts)
+                .WithMany(a => a.TripPosts)
                 .HasForeignKey(p => p.agencyId)
                 .WillCascadeOnDelete(false);
 
@@ -67,15 +72,34 @@ namespace trips_and_travel_system.Models
             #region FAQ Configration
 
             modelBuilder.Entity<FAQ>()
-                .HasKey<int>(f => f.FAQId);
+                .HasKey<int>(faq => faq.FAQId);
             modelBuilder.Entity<FAQ>()
-                .HasRequired<User>(t => t.traveler)
+                .HasRequired<User>(faq => faq.traveler)
                 .WithMany(t => t.fAQs)
-                .HasForeignKey(t => t.travelerId);
+                .HasForeignKey(faq => faq.travelerId);
             modelBuilder.Entity<FAQ>()
-                .HasRequired<Post>(p => p.post)
+                .HasRequired<Agency>(faq => faq.agency)
+                .WithMany(a => a.fAQs)
+                .HasForeignKey(faq => faq.agencyId);
+            modelBuilder.Entity<FAQ>()
+                .HasRequired<Post>(faq => faq.post)
                 .WithMany(p => p.fAQs)
-                .HasForeignKey(p => p.postId);
+                .HasForeignKey(faq => faq.postId);
+
+            #endregion
+
+            #region RoleMaster Configration
+
+            modelBuilder.Entity<RoleMaster>()
+                .HasKey<int>(r => r.RoleId);
+
+            #endregion
+
+            #region AgencyConfigration
+
+            modelBuilder.Entity<Agency>()
+                .HasRequired(a => a.user)
+                .WithRequiredPrincipal(u => u.agency);
 
             #endregion
         }

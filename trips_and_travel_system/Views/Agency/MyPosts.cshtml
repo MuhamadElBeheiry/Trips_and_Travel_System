@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "MyPosts";
+    Layout = "~/Views/Shared/_FactoryLayout.cshtml";
+}
+
+<div class="row my-5">
+    <div class="card text-center offset-3 col-6">
+        <div class="card-body">
+            <img src="~/Assets/Images/Everest.jpg" class="card-img-top" alt="Trip Image">
+            <h5 class="card-title mt-2">Trip Title</h5>
+            <p class="card-text">
+                Trip Date: @DateTime.Now
+                <br />
+                Destination: Somewhere
+            </p>
+            <p class="card-text">
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+                With supporting text below as a natural lead-in to additional content.
+            </p>
+            <a href="#" class="btn btn-primary mr-2">Edit</a>
+            <a href="#" class="btn btn-danger ml-2">Delete</a>
+        </div>
+        <div class="card-footer text-muted font-weight-bolder">@DateTime.Now</div>
+    </div>
+</div>
+
