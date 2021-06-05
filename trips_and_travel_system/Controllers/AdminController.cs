@@ -18,7 +18,7 @@ namespace trips_and_travel_system.Controllers
         }
         public ActionResult Profile()
         {
-            /*using (var db = new TripsAndTravelContext())
+            using (var db = new TripsAndTravelContext())
             {
                 db.RoleMasters.Add(new RoleMaster() { RoleName = "Admin" });
                 db.RoleMasters.Add(new RoleMaster() { RoleName = "Agency" });
@@ -77,7 +77,7 @@ namespace trips_and_travel_system.Controllers
                 }
                 db.SaveChanges();
 
-                using (StreamReader sr4 = new StreamReader(Server.MapPath("~/Database/FAQs.json")))
+                using (StreamReader sr4 = new StreamReader(Server.MapPath("~/Database/Json/FAQs.json")))
                 {
                     StreamReader sr = new StreamReader(Server.MapPath("~/Database/Json/Users.json"));
                     var users = JsonConvert.DeserializeObject<List<Class1>>(sr.ReadToEnd());
@@ -105,7 +105,7 @@ namespace trips_and_travel_system.Controllers
                     }
                 }
                 db.SaveChanges();
-            }*/
+            }
             return View();
         }
         public ActionResult Posts()
