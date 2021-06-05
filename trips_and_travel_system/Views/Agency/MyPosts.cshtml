@@ -23,10 +23,50 @@
                 With supporting text below as a natural lead-in to additional content.
                 With supporting text below as a natural lead-in to additional content.
             </p>
-            <a href="#" class="btn btn-primary mr-2">Edit</a>
+            <a href="#" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editPostModal">Edit</a>
             <a href="#" class="btn btn-danger ml-2">Delete</a>
         </div>
         <div class="card-footer text-muted font-weight-bolder">@DateTime.Now</div>
     </div>
 </div>
 
+<!--Edit Post Modal-->
+<div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-white bg-dark">
+                <h5 class="modal-title">Edit Post</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="offset-2 col-8 pt-5">
+                    <form action="@Url.Action("Profile", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+                        <div class="form-group">
+                            <label>Trip Image:</label>
+                            <input type="file" class="form-control" required name="image" style="border: none;">
+                        </div>
+                        <div class="form-group">
+                            <label>Trip Title:</label>
+                            <input class="form-control inputClass">
+                        </div><br />
+                        <div class="form-group">
+                            <label>Trip Date:</label>
+                            <input class="form-control inputClass">
+                        </div><br />
+                        <div class="form-group">
+                            <label>Destination:</label>
+                            <input class="form-control inputClass">
+                        </div><br />
+                        <div class="form-group">
+                            <label>Details:</label>
+                            <textarea class="form-control inputClass" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Save</button>
+                        </div><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
