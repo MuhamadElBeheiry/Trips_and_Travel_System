@@ -18,6 +18,7 @@ namespace trips_and_travel_system.Models
         public int UserId { set; get; }
         public int roleId { set; get; }
         public string username { set; get; }
+        public string email { set; get; }
         public string password { set; get; }
         public string firstName { set; get; }
         public string lastName { set; get; }

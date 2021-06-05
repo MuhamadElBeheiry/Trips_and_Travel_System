@@ -15,8 +15,6 @@ namespace trips_and_travel_system.Models
         }
 
         public int AgencyId { set; get; }
-        //[ForeignKey("user")]
-        public int userId { set; get; }
         public string agencyName { set; get; }
         public virtual User user { set; get; }
         public ICollection<Post> TripPosts { set; get; }

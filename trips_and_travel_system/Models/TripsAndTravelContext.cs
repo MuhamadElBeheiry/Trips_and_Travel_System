@@ -12,6 +12,7 @@ namespace trips_and_travel_system.Models
         public DbSet<Post> Posts { set; get; }
         public DbSet<FAQ> FAQs { set; get; }
         public DbSet<RoleMaster> RoleMasters { set; get; }
+        public DbSet<Agency> Agencies { set; get; }
 
         public TripsAndTravelContext() : base("name=DatabaseContext")
         {
@@ -99,7 +100,8 @@ namespace trips_and_travel_system.Models
 
             modelBuilder.Entity<Agency>()
                 .HasRequired(a => a.user)
-                .WithRequiredPrincipal(u => u.agency);
+                .WithOptional(u => u.agency)
+                .Map(a => a.MapKey("userId"));
 
             #endregion
         }

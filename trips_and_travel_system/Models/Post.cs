@@ -21,7 +21,7 @@ namespace trips_and_travel_system.Models
         public string details { set; get; }
         public string tripDestination { set; get; }
         public string tripImage { set; get; }
-        public int tripPrice { set; get; }
+        public float tripPrice { set; get; }
         public DateTime tripDate { set; get; }
         public DateTime postDate { set; get; }
         public bool accepted { set; get; }
