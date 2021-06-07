@@ -3,28 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using trips_and_travel_system.Models;
 
 namespace trips_and_travel_system.Controllers
 {
     public class HomeController : Controller
     {
+        private TripsAndTravelContext db = new TripsAndTravelContext();
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(db.Posts.ToList());
         }
     }
 }

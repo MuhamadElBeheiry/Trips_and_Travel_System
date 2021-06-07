@@ -13,141 +13,83 @@
                     <tr>
                         <th class="col-1">Photo</th>
                         <th class="col-2">Username</th>
-                        <th class="col-3">Name</th>
+                        <th class="col-2">Name</th>
                         <th class="col-2">Email</th>
                         <th class="col-2">Phone</th>
                         <th class="col-1">Role</th>
+                        <th class="col-1"></th>
+                        <th class="col-1"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="user_icon rounded-circle">
-                                <img class="rounded-circle" src="~/Assets/Images/ProfilePicture.jpg" alt="">
-                            </div>
-                        </td>
-                        <td>mohamed88@travel.com</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>mohamed77@gmail.com</td>
-                        <td>(200) 100-7762-472</td>
-                        <td>Admin</td>
-                        <td>
-                            <ul class="action-list">
-                                <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
-                                <li><a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
-                            </ul>
-                        </td>
-                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="user_icon rounded-circle">
+                                    <img class="rounded-circle" src="@Url.Content(item.photo)" alt="">
+                                </div>
+                            </td>
+                            <td>@item.username</td>
+                            <td>@item.firstName @item.lastName</td>
+                            <td>@item.email</td>
+                            <td>@item.phone</td>
+                            <td>@item.role.RoleName</td>
+                            <td>
+                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#editUserModal@{@item.UserId}"><i class="fa fa-pencil"></i></a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("DeleteUser", "Admin", new { id = item.UserId })" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+@foreach (var item in Model)
+{
+
+    <!--Edit User Modal-->
+    <div class="modal fade" id="editUserModal@{@item.UserId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-white bg-dark">
+                    <h5 class="modal-title">Save</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="offset-2 col-8 pt-5">
+                        <form action="@Url.Action("EditUser", "Admin")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+                            <input name="UserId" type="hidden" value="@item.UserId" />
+                            <div class="form-group">
+                                <label>Username:</label>
+                                <input name="username" class="form-control" value="@item.username">
+                            </div><br />
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input name="firstName" class="form-control" value="@item.firstName">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input name="lastName" class="form-control" value="@item.lastName">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input name="email" class="form-control" value="@item.email">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Phone:</label>
+                                <input name="phone" class="form-control" value="@item.phone">
+                            </div><br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Save</button>
+                            </div><br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

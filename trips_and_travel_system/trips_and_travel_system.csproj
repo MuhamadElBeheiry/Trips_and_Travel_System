@@ -63,6 +63,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -130,13 +131,19 @@
     <Compile Include="Controllers\AgencyController.cs" />
     <Compile Include="Controllers\data.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TravelerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106070057553_InitialCreate.cs" />
+    <Compile Include="Migrations\202106070057553_InitialCreate.designer.cs">
+      <DependentUpon>202106070057553_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agency.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\RoleMaster.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\TripsAndTravelContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,7 +151,6 @@
   <ItemGroup>
     <Content Include="Assets\Agency\EditButton.js" />
     <Content Include="Assets\Agency\Question.css" />
-    <Content Include="Database\Images\IMG_8051.JPG" />
     <Content Include="Database\Images\PostDefaultImage.jpg" />
     <Content Include="Database\Images\UserAvatar.png" />
     <Content Include="Assets\Admin\Users.css" />
@@ -292,9 +298,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Posts.cshtml" />
     <Content Include="Views\Admin\PostsRequests.cshtml" />
@@ -316,9 +319,11 @@
     <Content Include="Views\Agency\ReceivedQuestions.cshtml" />
     <Content Include="Views\Agency\MyPosts.cshtml" />
     <Content Include="Views\Agency\CreateNewPost.cshtml" />
+    <Content Include="Views\Shared\_WallLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Traveler\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -328,6 +333,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106070057553_InitialCreate.resx">
+      <DependentUpon>202106070057553_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

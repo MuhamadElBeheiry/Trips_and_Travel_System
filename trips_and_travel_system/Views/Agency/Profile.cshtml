@@ -5,9 +5,10 @@
 }
 
 <div class="offset-2 col-8 pt-5">
-    <form action="@Url.Action("Profile", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+    <form action="@Url.Action("UpdateProfile", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+        <input name="UserId" type="hidden" value="@Model.UserId" />
         <div class="form-group offset-2 col-8">
-            <img class="card-img" src="~/Database/Images/IMG_8051.JPG" />
+            <img class="card-img" src="@Url.Content(Model.photo)" />
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-dark" style="width: 100%;" data-toggle="modal" data-target="#UploadImgModal">
@@ -16,28 +17,28 @@
         </div>
         <div class="form-group">
             <label>Agency Name:</label>
-            <input id="AgencyName" class="form-control inputClass" value="blablabla" disabled>
+            <input name="agency.agencyName" id="AgencyName" class="form-control" value="@Model.agency.agencyName" disabled>
         </div>
         <div class="form-group">
             <label>Manager First Name:</label>
-            <input id="FirstName" class="form-control inputClass" value="blablabla" disabled>
+            <input name="firstName" id="FirstName" class="form-control" value="@Model.firstName" disabled>
         </div>
         <div class="form-group">
             <label>Manager Last Name:</label>
-            <input id="LastName" class="form-control inputClass" value="blablabla" disabled>
+            <input name="lastName" id="LastName" class="form-control" value="@Model.lastName" disabled>
         </div>
         <div class="form-group">
             <label>Username:</label>
-            <input id="Username" class="form-control inputClass" value="blablabla" disabled>
+            <input name="username" id="Username" class="form-control" value="@Model.username" disabled>
         </div>
         <div class="form-group">
             <label>Password:</label>
-            <input id="Password" class="form-control inputClass" value="blablabla" disabled>
-            <input id="ConfirmPassword" class="form-control inputClass mt-3" hidden="hidden" placeholder="Confirm Password" disabled>
+            <input name="password" id="Password" class="form-control" value="" disabled>
+            <input id="ConfirmPassword" class="form-control mt-3" hidden="hidden" placeholder="Confirm Password" disabled>
         </div>
         <div class="form-group">
             <label>Phone:</label>
-            <input id="Phone" class="form-control inputClass" value="blablabla" disabled>
+            <input name="phone" id="Phone" class="form-control" value="@Model.phone" disabled>
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-dark" id="EditBtn" onClick="EditData()" style="width: 100%;">Edit</button>
@@ -53,10 +54,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="file" class="form-control" required name="image" style="border: none;">
+                            <input name="Img" type="file" class="form-control" style="border: none;">
                         </div>
                         <div class="modal-footer" style="border: none;">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Upload Image</button>
+                            <button type="button" class="btn btn-dark" onClick="EditData()" data-dismiss="modal">Upload Image</button>
                             <button class="btn btn-dark" data-dismiss="modal">Close</button>
                         </div>
                     </div>

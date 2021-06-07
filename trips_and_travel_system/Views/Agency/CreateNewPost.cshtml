@@ -5,7 +5,8 @@
 }
 
 <div class="offset-2 col-8 pt-5">
-    <form action="@Url.Action("Profile", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+    <form action="@Url.Action("CreateNewPost", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+        <input name="AgencyId" type="hidden" value="@ViewBag.AgencyId" />
         <div class="form-group">
             <button type="button" class="btn btn-dark" style="width: 100%;" data-toggle="modal" data-target="#UploadImgModal">
                 Upload Post&apos;s Picture
@@ -13,20 +14,24 @@
         </div>
         <div class="form-group">
             <label>Trip Title:</label>
-            <input class="form-control inputClass" >
+            <input name="title" class="form-control">
         </div><br />
         <div class="form-group">
             <label>Trip Date:</label>
-            <input class="form-control inputClass" >
+            <input name="tripDate" type="datetime-local" class="form-control">
         </div><br />
         <div class="form-group">
             <label>Destination:</label>
-            <input class="form-control inputClass" >
+            <input name="tripDestination" class="form-control">
         </div><br />
         <div class="form-group">
             <label>Details:</label>
-            <textarea class="form-control inputClass" rows="5"></textarea>
+            <textarea name="details" class="form-control" rows="5"></textarea>
         </div>
+        <div class="form-group">
+            <label>Price:</label>
+            <input name="tripPrice" class="form-control" type="number">
+        </div><br />
         <div class="form-group">
             <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Post</button>
         </div><br />
@@ -40,7 +45,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="file" class="form-control" required name="image" style="border: none;">
+                            <input name="Img" type="file" class="form-control" style="border: none;">
                         </div>
                         <div class="modal-footer" style="border: none;">
                             <button data-dismiss="modal" class="btn btn-dark">Upload Image</button>
